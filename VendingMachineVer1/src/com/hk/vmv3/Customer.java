@@ -41,12 +41,23 @@ public class Customer {
 	
 	//재고 1씩 올리기
 	public void addStock(int idx) {
+		drinks.get(idx).plusStock();
 		
+		//밑에꺼 둘다 getStock, setStock 이용하여 한 방법
+		/*
+		//3줄로 처리 (가독성 ^)
+		Drink d = drinks.get(idx);
+		int stock = d.getStock();
+		d.setStock(stock++);
+		*/
+		
+		//1줄로 처리 (가독성 떨어짐)
+		//drinks.get(idx).setStock((drinks.get(idx).getStock()) + 1);
 	}
 	
 	//금액 사용
 	public void payMoney(int idx) {
-		
+		//잔돈 프린트
 	}
 	
 	@Override

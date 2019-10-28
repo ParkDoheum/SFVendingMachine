@@ -36,9 +36,7 @@ public class VendingMachine {
 		}  else {
 			
 			if(d.minusStock()) {
-				
-				int calc = cust.getMoney() - d.getPrice();
-				System.out.printf("잔돈 : %,d\n", calc);	
+				cust.purchase(targetIdx);					
 			} else {
 				System.out.println("재고가 부족합니다.");
 			}
