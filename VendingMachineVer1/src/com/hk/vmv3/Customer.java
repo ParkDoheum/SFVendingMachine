@@ -16,7 +16,7 @@ public class Customer {
 		this.name = name;
 		this.money = money;
 	}
-	
+		
 	private void init() {
 		drinks.add(new Drink("콜라", 1000));
 		drinks.add(new Drink("사이다", 1100));
@@ -24,11 +24,35 @@ public class Customer {
 		drinks.add(new Drink("2%", 1300));
 		drinks.add(new Drink("마운틴듀", 1400));
 	}
-	
+		
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	//구매
 	public void purchase(int idx) {
+		addStock(idx);
+		payMoney(idx);
+	}
+	
+	//재고 1씩 올리기
+	public void addStock(int idx) {
 		
 	}
 	
+	//금액 사용
+	public void payMoney(int idx) {
+		
+	}
+	
+	@Override
+	public String toString() {
+		return name + ", " + money;
+	}
 }
 
 

@@ -14,10 +14,15 @@ public class VendingMachine {
 		drinks.add(new Drink("환타", 1200));
 		drinks.add(new Drink("2%", 1300));
 		drinks.add(new Drink("마운틴듀", 1400));		
+		
+		int baseStock = 10;
+		for(Drink d : drinks) {
+			d.setStock(baseStock);
+		}
 	}
 	//재고가 없으면 메시지 > "재고가 부족합니다."
 	//구매를 했다면 재고를 -1 시킨다.	
-	public void sales(int idx, int money) {
+	public void sales(int idx, Customer cust) {
 		//해당 제품의 주소값을 빼온다음에
 		int targetIdx = idx - 1;
 		if(targetIdx < 0 || targetIdx >= drinks.size()) {
@@ -26,12 +31,13 @@ public class VendingMachine {
 		} 
 		
 		Drink d = drinks.get(targetIdx);		
-		if(d.getPrice() > money) {
+		if(d.getPrice() > cust.getMoney()) {
 			System.out.println("금액이 부족합니다.");
 		}  else {
 			
 			if(d.minusStock()) {
-				int calc = money - d.getPrice();
+				
+				int calc = cust.getMoney() - d.getPrice();
 				System.out.printf("잔돈 : %,d\n", calc);	
 			} else {
 				System.out.println("재고가 부족합니다.");
