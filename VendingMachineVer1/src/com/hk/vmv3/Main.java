@@ -23,6 +23,12 @@ public class Main {
 		System.out.print("번호를 입력해 주세요: ");
 		int idx = scan.nextInt();
 		
+		vm.sales(idx, cust);
+		
+		System.out.println("--------------");
+		vm.showDrinks();
+		cust.showState();
+		
 		scan.close();
 	}
 

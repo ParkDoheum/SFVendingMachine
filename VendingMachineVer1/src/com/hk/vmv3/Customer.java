@@ -58,6 +58,19 @@ public class Customer {
 	//금액 사용
 	public void payMoney(int idx) {
 		//잔돈 프린트
+		Drink d = drinks.get(idx);		
+		money -= d.getPrice();
+		
+		//money = money - d.getPrice();
+	}
+	
+	public void showState() {
+		System.out.println("--" + name + " 고객의 재고 상태--");
+		for(int i=0; i<drinks.size(); i++) {
+			Drink d = drinks.get(i);
+			System.out.printf("%d. %s\n", (i+1), d);
+		}		
+		System.out.println("Money : " + money);
 	}
 	
 	@Override
